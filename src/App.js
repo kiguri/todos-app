@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react'
 
-import Index from './components/form/';
-
+import Form from './components/features/form/todoForm'
+import TodoList from './components/features/todos/todoList'
 
 function App() {
+    const [todoText, setTodoText] = useState('')
+    const [currentId, setCurrentId] = useState(null)
     return (
         <div>
             <header>
                 <h1>Todos list</h1>
             </header>
 
-            <Index />
+            <Form
+                todoText={todoText}
+                setTodoText={setTodoText}
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+            />
+            <TodoList
+                setTodoText={setTodoText}
+                setCurrentId={setCurrentId}
+            />
+
         </div>
     )
 }
